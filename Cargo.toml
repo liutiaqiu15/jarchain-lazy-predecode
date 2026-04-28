@@ -1,0 +1,27 @@
+[package]
+name = "jarchain-lazy-predecode"
+version = "0.1.0"
+edition = "2021"
+description = "Lazy pre-decode implementation for JAVM interpreter"
+license = "Apache-2.0"
+
+[features]
+default = ["std"]
+std = []
+lazy-predecode = []
+
+[dependencies]
+# Criterion for benchmarks
+criterion = { version = "0.5", optional = true }
+
+[dev-dependencies]
+criterion = "0.5"
+
+[[bench]]
+name = "lazy_predecode"
+harness = false
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
